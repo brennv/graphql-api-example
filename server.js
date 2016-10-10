@@ -39,8 +39,8 @@ const starterQuery = '{ \n \
     lastName \n \
     posts { \n \
       id \n \
-      text \n \
       title \n \
+      text \n \
       views \n \
     } \n \
   } \n \

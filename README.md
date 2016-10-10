@@ -6,7 +6,7 @@ Minimal example of a graphql server fusing data from postgres, mongo and a REST 
 
 Start three containers: postgres, mongo and a graphql server.
 
-```
+```shell
 docker-compose up
 ```
 
@@ -16,7 +16,7 @@ Visit [http://localhost:8080/graphiql](http://localhost:8080/graphiql)
 
 Example graphql query:
 
-```
+```graphql
 {
   author (firstName: "Edmond", lastName: "Jones") {
     id
@@ -24,13 +24,23 @@ Example graphql query:
     lastName
     posts {
       id
-      text
       title
+      text
       views  
     }
   }
   getFortuneCookie
 }
+```
+
+The same query via curl to endpoint `/graphql`:
+
+```shell
+curl 'http://localhost:8080/graphql' \
+  -H "Content-Type:application/json" \
+  -d '{
+        "query": "{ author (firstName: \"Edmond\", lastName: \"Jones\") { id firstName lastName posts { id title text views  } } getFortuneCookie }"
+      }'
 ```
 
 Expected response:
@@ -45,8 +55,8 @@ Expected response:
       "posts": [
         {
           "id": 2,
-          "text": "Harum ullam pariatur quos est quod. Ea quisquam esse quia et commodi autem. Ut exercitationem maiores et voluptas.",
           "title": "A post by Edmond",
+          "text": "Harum ullam pariatur quos est quod. Ea quisquam esse quia et commodi autem. Ut exercitationem maiores et voluptas.",
           "views": 31
         }
       ]
@@ -60,7 +70,7 @@ Expected response:
 
 After making changes:
 
-```
+```shell
 docker-compose build
 docker-compose up
 ```
