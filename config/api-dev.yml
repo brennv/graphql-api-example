@@ -1,8 +1,8 @@
 # For creating stack 'graphql-api-example-dev' on nodes tagged 'compute'
-graphql-api-example-dev:
+api-dev:
   autoredeploy: true
   environment:
-    - VIRTUAL_HOST=graphql-api-example-dev.example.com
+    - VIRTUAL_HOST=api-dev.example.com
   expose:
     - '80'
   image: 'brenn/graphql-api-example:develop'

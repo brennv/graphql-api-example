@@ -1,9 +1,9 @@
 # For creating stack 'graphql-api-example' on nodes tagged 'compute'
-graphql-api-example:
+api:
   autoredeploy: true
   deployment_strategy: high_availability
   environment:
-    - VIRTUAL_HOST=graphql-api-example.example.com
+    - VIRTUAL_HOST=api.example.com
   expose:
     - '80'
   image: 'brenn/graphql-api-example:latest'  # follows master branch
