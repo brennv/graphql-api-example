@@ -1,0 +1,13 @@
+# For creating stack 'haproxy' on a dedicated node tagged 'infra'
+haproxy:
+  image: 'dockercloud/haproxy:latest'
+  links:
+    - 'graphql-api-example.graphql-api-example:graphql-api-example'
+    - 'graphql-api-example-dev.graphql-api-example-dev:graphql-api-example-dev'
+  ports:
+    - '80:80'
+  restart: always
+  roles:
+    - global
+  tags:
+    - infra

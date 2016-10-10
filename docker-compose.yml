@@ -1,0 +1,29 @@
+graphql:
+  build: .
+  dockerfile: Dockerfile
+  links:
+    - mongo
+    - postgres
+  ports:
+    - "8080:8080"
+  environment:
+    - POSTGRES_DB_USER=example
+    - POSTGRES_DB_PASS=admin
+    - POSTGRES_DB_NAME=example
+mongo:
+  image: mongo:3.2
+  ports:
+    - "21017"
+postgres:
+  image: sameersbn/postgresql:9.5-2
+  ports:
+    - "5432:5432"
+  environment:
+    - POSTGRES_PASSWORD=admin
+    - DB_USER=example
+    - DB_PASS=admin
+    - DB_NAME=example
+  #   - PGDATA=/pgdata
+  # volumes:
+  #   - ./db/pgdata:/pgdata
+  #   - ./db/sample-setup.sql:/docker-entrypoint-initdb.d/sample-setup.sql

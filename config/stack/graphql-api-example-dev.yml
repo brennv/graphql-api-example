@@ -1,0 +1,26 @@
+# For creating stack 'graphql-api-example-dev' on nodes tagged 'compute'
+graphql-api-example-dev:
+  autoredeploy: true
+  environment:
+    - VIRTUAL_HOST=graphql-api-example-dev.example.com
+  expose:
+    - '80'
+  image: 'brenn/graphql-api-example:develop'
+  ports:
+    - '80:8080'
+  tags:
+    - compute
+  links:
+    - 'postgres-dev.postgres-dev:postgres-dev'
+    - 'mongo-dev.mongo-dev:mongo-dev'
+  environment:
+    - POSTGRES_DB_USER=example
+    - POSTGRES_DB_PASS=admin
+    - POSTGRES_DB_NAME=example
+
+  # links:
+  #   - redis
+  # environment:
+  #   - HELLO_NAME=world
+# redis:
+  # image: 'redis:latest'
