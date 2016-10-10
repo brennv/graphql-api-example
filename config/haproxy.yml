@@ -2,8 +2,8 @@
 haproxy:
   image: 'dockercloud/haproxy:latest'
   links:
-    - 'graphql-api-example.graphql-api-example:graphql-api-example'
-    - 'graphql-api-example-dev.graphql-api-example-dev:graphql-api-example-dev'
+    - 'api.api:api'
+    - 'api-dev.api-dev:api-dev'
   ports:
     - '80:80'
   restart: always

@@ -1,10 +1,10 @@
 # graphql-api-example
 
-Minimal example of a graphql server fusing data from postgres, mongo and a REST api. Adapted from the [How to build a GraphQL server](https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035) and the [apollo-tutorial-kit](https://github.com/apollostack/apollo-tutorial-kit).
+Minimal example of a graphql server fusing data from postgres, mongo and a REST api. Adapted from [How to build a GraphQL server](https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035) and the [apollo-tutorial-kit](https://github.com/apollostack/apollo-tutorial-kit).
 
 ## Getting started
 
-Start three containers: postgres, mongo and a grapql server.
+Start three containers: postgres, mongo and a graphql server.
 
 ```
 docker-compose up
