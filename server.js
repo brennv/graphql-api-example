@@ -3,7 +3,7 @@ import Schema from './api/schema';
 import Resolvers from './api/resolvers';
 // import Mocks from './api/mocks';
 
-import { apolloExpress, graphiqlExpress } from 'apollo-server';
+import { apolloExpress, graphiqlExpress, } from 'apollo-server';
 import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools';
 import bodyParser from 'body-parser';
 
@@ -19,20 +19,6 @@ const executableSchema = makeExecutableSchema({
   resolvers: Resolvers,
   allowUndefinedInResolve: false,
   printErrors: true,
-  query: '{
-    author (firstName: "Edmond", lastName: "Jones") {
-      id
-      firstName
-      lastName
-      posts {
-        id
-        text
-        title
-        views
-      }
-    }
-    getFortuneCookie
-  }',
 });
 
 // addMockFunctionsToSchema({
@@ -46,8 +32,24 @@ graphQLServer.use('/graphql', bodyParser.json(), apolloExpress({
   context: {},  // `context` must be an object and can't be undefined when using connectors
 }));
 
+const starterQuery = '{ \n \
+  author (firstName: "Edmond", lastName: "Jones") { \n \
+    id \n \
+    firstName \n \
+    lastName \n \
+    posts { \n \
+      id \n \
+      text \n \
+      title \n \
+      views \n \
+    } \n \
+  } \n \
+  getFortuneCookie \n \
+}';
+
 graphQLServer.use('/graphiql', graphiqlExpress({
   endpointURL: '/graphql',
+  query: starterQuery,
 }));
 
 graphQLServer.listen(GRAPHQL_PORT, () => console.log(
