@@ -4,6 +4,8 @@ Minimal example of a graphql server fusing data from postgres, mongo and a REST 
 
 ## Getting started
 
+Start three containers: postgres, mongo and a grapql server.
+
 ```
 docker-compose up
 ```
@@ -59,7 +61,6 @@ Expected response:
 After making changes:
 
 ```
-docker-compose rm  # optional if linked images unchanged
 docker-compose build
 docker-compose up
 ```

@@ -1,3 +1,3 @@
 #!/bin/bash
-sleep 20  # Wait for postgres to initialize
+sleep 10  # Wait for postgres to initialize
 npm start
