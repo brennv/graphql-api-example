@@ -1,4 +1,4 @@
-# For creating stack 'graphql-api-example-dev' on nodes tagged 'compute'
+# For creating stack 'api-dev' on nodes tagged 'compute'
 api-dev:
   autoredeploy: true
   environment:
